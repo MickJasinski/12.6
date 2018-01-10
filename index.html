@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>12.6</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body onload="document.getElementById('country-name').focus()">
+    <main>
+        <div class="search">
+            <div class="box">
+            <h1 class="title">Country search engine</h1>
+            <h4>Just start typing...</h4>
+            <input id="country-name" type="text" value="" onkeypress="searchCountries()" class="underscore" onfocus="hideUnderscore(this)" onblur="showUnderscore(this)" />
+            <!-- <button id="search">Search a country</button> -->
+            </div>
+        </div>
+        <div class="results">
+            <h2>Results:</h2>
+            <ul id="countries">
+            </ul>
+        </div>
+    </main>
+    <footer>&copy; 2017 | minimalCraft  &reg;</footer>
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+    window.jQuery || document.write('<script src="js/jquery-3.2.1.min.js">')
+    </script>
+    <script type="text/javascript" src="js/scripts.js"></script>
+</body>
+
+</html>

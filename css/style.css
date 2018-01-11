@@ -33,9 +33,9 @@ main {
 #country-name {
 	font-size: 40px;
 	text-align: center;
+	padding: 5px;
 	margin-top: 5vh;
 	background: none;
-	border: none;
 	color: white;
 }
 /*
@@ -46,14 +46,20 @@ input {
 }
 
 .underscore {
-  border-bottom: solid 5px white;
+  box-shadow: 1px 1px 8px rgba(0,0,0,.4);
+  border-radius: 20px;
 }
-
 
 .results {
 	width: 100%;
 	max-width: 800px;
 	margin: 0 auto;
+}
+
+.results p {
+	padding: 0;
+	margin: 0;
+	text-align: left;
 }
 
 .results hr {

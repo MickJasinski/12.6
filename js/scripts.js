@@ -7,9 +7,9 @@ $('#search').click(searchCountries); // search button
 
 function searchCountries() {
   var countryName = $('#country-name').val(); // user's request
-  if (countryName.length < 2) {
-    $('#countries').clear()
-  } else {
+  if (!countryName) {
+    countriesList.empty(); // clear list of countries
+  } else if (countryName.length > 1) {
     $.ajax({
       url: url + countryName,
       method: 'GET',
@@ -30,14 +30,14 @@ function showCountriesList(resp) {
   countriesList.empty(); // clear list of countries
   resp.forEach(function(item) {
     $('<hr>').appendTo(countriesList);
-    $('<img>').attr('src', item.flag).appendTo(countriesList);
-    $('<li>').text('Country name: ' + item.name).appendTo(countriesList);
-    $('<li>').text('Capital: ' + item.capital).appendTo(countriesList);
-    $('<li>').text('Region: ' + item.region).appendTo(countriesList);
-    $('<li>').text('Subregion: ' + item.subregion).appendTo(countriesList);
-    $('<li>').text('Population: ' + item.population).appendTo(countriesList);
-    $('<li>').text('Language(s): ' + item.languages[0].name).appendTo(countriesList);
-    $('<li>').text('Currency: ' + item.currencies[0].name).appendTo(countriesList);
+    $('<img>').attr('src', item.flag).attr('alt', 'flag').appendTo(countriesList);
+    $('<p>').text('Country name: ' + item.name).appendTo(countriesList);
+    $('<p>').text('Capital: ' + item.capital).appendTo(countriesList);
+    $('<p>').text('Region: ' + item.region).appendTo(countriesList);
+    $('<p>').text('Subregion: ' + item.subregion).appendTo(countriesList);
+    $('<p>').text('Population: ' + item.population).appendTo(countriesList);
+    $('<p>').text('Language(s): ' + item.languages[0].name).appendTo(countriesList);
+    $('<p>').text('Currency: ' + item.currencies[0].name).appendTo(countriesList);
     // $('<hr>').appendTo(countriesList);
   });
 }

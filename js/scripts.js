@@ -7,13 +7,14 @@ $('#search').click(searchCountries); // search button
 
 function searchCountries() {
   var countryName = $('#country-name').val(); // user's request
-  if (!countryName) {
+  if (countryName.length < 3) {
     countriesList.empty(); // clear list of countries
-  } else if (countryName.length > 1) {
+  } else if (countryName.length >= 3) {
     $.ajax({
       url: url + countryName,
       method: 'GET',
-      success: showCountriesList
+      success: showCountriesList,
+      error: countriesList.empty()
     });
   }
 }
